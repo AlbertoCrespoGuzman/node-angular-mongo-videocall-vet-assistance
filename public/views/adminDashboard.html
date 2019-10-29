@@ -1,0 +1,118 @@
+
+    <div id="page-contents">
+    	<div class="container">
+    		<div class="row" style="margin-top: 50px">
+
+    			<!-- Newsfeed Common Side Bar Left
+          ================================================= -->
+    			<div class="col-md-3 static">
+            <div class="profile-card">
+            	<img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
+            	<h5><a href="timeline.html" class="text-white">{{username}}</a></h5>
+            	<a href="#" class="text-white"><i class="ion ion-android-person-add"></i> {{"ROLE_ADMIN" | translate}}</a>
+            </div><!--profile card ends-->
+            <ul class="nav-news-feed">
+              <li><i class="icon ion-ios-paper"></i><div><a ng-click="getAdmins()" style="cursor: pointer">{{"MENU_ADMIN_ADMINS" | translate}}</a></div></li>
+              <li><i class="icon ion-ios-people"></i><div><a ng-click="getVets()" style="cursor: pointer">{{"MENU_ADMIN_VETS" | translate}}</a></div></li>
+              <li><i class="icon ion-ios-people-outline"></i><div><a ng-click="getClients()" style="cursor: pointer">{{"MENU_ADMIN_CLIENTS" | translate}}</a></div></li>
+              <li><i class="icon ion-chatboxes"></i><div><a >{{"VIDEOCALLS_SIDEBAR_ADMIN" | translate}}</a></div></li>
+              <li ng-click="getPaypalPlan()"><i class="icon ion-card pink-icon"></i><div><a >{{"PAYMENT_DETAILS_SIDEBAR" | translate}}</a></div></li>
+            </ul><!--news-feed links ends-->
+            <div id="chat-block">
+             </div> 
+          </div>
+          
+    			<div class="col-md-9">
+
+            <!-- Post Create Box
+            ================================================= -->
+            <div class="create-post" >
+               <div class="form-wrapper">
+                  <p class="signup-text">{{"REGISTER_ADMIN_TEXT" | translate}}</p>
+                  <form ng-submit="doRegisterAdmin()">
+                     <fieldset class="form-group">
+                        <p ng-if="showUsernameError" style="color:red">{{usernameErrorMsg}}</p>
+                        <input type="email" class="form-control" id="username" placeholder="{{ 'REGISTER_USERNAME' | translate }}" ng-model="registerData.username">
+                     </fieldset>
+                     <fieldset class="form-group">
+                      <p ng-if="showPasswordError" style="color:red">{{passwordErrorMsg}}</p>
+                        <input type="password" class="form-control" id="password" placeholder="{{ 'REGISTER_PASSWORD' | translate }}"  ng-model="registerData.password">
+                     </fieldset>
+                     <fieldset class="form-group">
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="{{ 'REGISTER_CONFIRM_PASSWORD' | translate }}" ng-model="registerData.confirmPassword">
+                     </fieldset>
+                      <div class="form-group gender" >
+                      <label class="radio-inline">
+                        <input type="radio" name="optradio" id="admin" ng-model="registerData.admin" value="true">{{"REGISTER_ADMIN_ACCOUNT" | translate}}
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="optradio" id="vet" ng-model="registerData.vet" value="true">{{"REGISTER_VET_ACCOUNT" | translate}}
+                      </label>
+                    </div>
+                     <button class="btn btn-primary pull-right" ng-if="!registeringNow" type="submit">{{ "REGISTER_BUTTON" | translate }}</button>
+                    <p ng-if="registeringNow">{{registerMsg}}</p><img height="20" src="images/spinner.gif" ng-if="showRegisteringSpinner">
+                    <p ng-if="!registeringNow">{{registerMsgError}}</p>
+
+                  </form>
+                  
+                  
+               </div>
+            </div><!-- Sign Up Form End -->
+            
+
+            <!-- Chat Room
+            ================================================= -->
+            <div class="chat-room" ng-if="state.paypal">
+              <div  class="row">
+                <div class="col-md-12">
+
+                  <!-- Contact List in Left-->
+                  <ul class="nav nav-tabs contact-list scrollbar-wrapper scrollbar-outer">
+                    <li class="active" ng-repeat="paypalplan in paypalPlan">
+                      <a data-toggle="tab">
+                        <div class="contact">
+                          
+                          <div class="msg-preview">
+                            <h6>{{paypalplan}}</h6>
+                            
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul><!--Contact List in Left End-->
+                  <center><button ng-click=doPaypalPlan()>Crear plan paypal</button></center>
+                </div>
+                
+                <div class="clearfix"></div>
+              </div>
+            </div>
+            <div class="chat-room" ng-if="!state.paypal">
+              <div  class="row">
+                <div class="col-md-6">
+
+                  <!-- Contact List in Left-->
+                  <ul class="nav nav-tabs contact-list scrollbar-wrapper scrollbar-outer">
+                    <li class="active" ng-repeat="user in users">
+                      <a ng-click="getUser(user._id)" data-toggle="tab">
+                        <div class="contact">
+                        	<img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
+                        	<div class="msg-preview">
+                        		<h6>{{user.username}}</h6>
+                        		<p class="text-muted">{{user.userRole}}</p>
+                            <small class="text-muted">{{"LAST_CONNECTION" | translate}} {{user.lastActivity | date: "dd/MM/yy hh:mm" }}</small>
+                            <div class="chat-alert">1</div>
+                        	</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul><!--Contact List in Left End-->
+
+                </div>
+                <div class="col-md-6">
+
+                 
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>

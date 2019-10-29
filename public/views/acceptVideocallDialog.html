@@ -1,0 +1,12 @@
+
+<div class="tab-content">
+   
+    <div class="tab-pane active" id="login">
+      <h3>{{"ATTENDANCE_TITLE_DIALOG" | translate}}</h3>
+      <p class="text-muted" style="margin-top:15px; margin-bottom: 30px"><strong>{{videoCall.vet.details ? videoCall.vet.details.firstname + ' ' + videoCall.vet.details.lastname : videoCall.vet.username}}</strong> {{"ATTENDANCE_TEXT_1_ATTENDANCE_DIALOG" | translate}}<strong> {{videoCall.credits}}</strong >{{ !videoCall.urgent ? "ATTENDANCE_TEXT_2_ATTENDANCE_DIALOG" : "ATTENDANCE_TEXT_URGENCE_ATTENDANCE_DIALOG" | translate}}</p>
+      
+      
+      <button class="btn btn-primary" ng-click="acceptVideocall()">{{"ACCEPT_BUTTON" | translate}}</button><button ng-click="cancelAcceptVideocallDialog()" class="btn btn-primary" style="float:right; color:#939598; background: white;">{{"CANCEL_BUTTON" | translate}}</button>
+    </div>
+           
+</div>

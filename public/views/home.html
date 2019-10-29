@@ -1,0 +1,262 @@
+
+    <!-- Top Banner
+    ================================================= -->
+      <section id="banner" style="margin-top:-80px;">
+         <div class="container">
+
+        <!-- Sign Up Form
+        ================================================= -->
+        <div class="sign-up-form" ng-if="showRegister">
+               <a href="#" class="logo"><img src="images/logo.png" alt="Go Dr Pet"/></a>
+               <h2 class="text-white">Go Dr Pet</h2>
+               <div class="line-divider"></div>
+               <div class="form-wrapper">
+                  <p class="signup-text">{{"REGISTER_TEXT" | translate}}</p>
+                  <form ng-submit="doRegister()">
+                     <fieldset class="form-group">
+                        <p ng-if="showUsernameError" style="color:red">{{usernameErrorMsg}}</p>
+                        <input type="email" class="form-control" id="username" placeholder="{{ 'REGISTER_USERNAME' | translate }}" ng-model="registerData.username">
+                     </fieldset>
+                     <fieldset class="form-group">
+                      <p ng-if="showPasswordError" style="color:red">{{passwordErrorMsg}}</p>
+                        <input type="password" class="form-control" id="password" placeholder="{{ 'REGISTER_PASSWORD' | translate }}"  ng-model="registerData.password">
+                     </fieldset>
+                     <fieldset class="form-group">
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="{{ 'REGISTER_CONFIRM_PASSWORD' | translate }}" ng-model="registerData.confirmPassword">
+                     </fieldset>
+                      <p>{{"REGISTER_TERMS_ACCOUNT" | translate}}</p>
+                     <button class="btn-secondary" ng-if="!registeringNow" type="submit">{{ "REGISTER_BUTTON" | translate }}</button>
+                    <p ng-if="registeringNow">{{registerMsg}}</p><img height="20" src="images/spinner.gif" ng-if="showRegisteringSpinner">
+                  </form>
+                 
+                  
+               </div>
+               <a ng-click="changeForm(false, true, false)" style="cursor: pointer">{{ "REGISTER_YOU_HAVE_ACCOUNT" | translate }}</a>
+               <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+            </div><!-- Sign Up Form End -->
+
+       <!-- Login Form
+        ================================================= -->
+        <div class="sign-up-form" ng-if="showLogin">
+               <a href="#" class="logo"><img src="images/logo.png" alt="Go Dr Pet"/></a>
+               <h2 class="text-white">Go Dr Pet</h2>
+               <div class="line-divider"></div>
+               <div class="form-wrapper">
+                  <p class="signup-text">{{"LOGIN_TEXT" | translate}}</p>
+                  <form ng-submit="doLogin()">
+                     <fieldset class="form-group">
+                        <p ng-if="showUsernameError" style="color:red">{{usernameErrorMsg}}</p>
+                        <input type="email" class="form-control" id="username" placeholder="{{ 'LOGIN_USERNAME' | translate }}" ng-model="loginData.username">
+                     </fieldset>
+                     <fieldset class="form-group">
+                      <p ng-if="showPasswordError" style="color:red">{{passwordErrorMsg}}</p>
+                        <input type="password" class="form-control" id="password" placeholder="{{ 'LOGIN_PASSWORD' | translate }}"  ng-model="loginData.password">
+                     </fieldset>
+                     <a ng-click="changeForm(false, false, true)" style="cursor: pointer">{{ "FORGOT_PASSWORD" | translate }}</a>
+                     <button class="btn-secondary" ng-if="!loginNow" type="submit">{{ "LOGIN_BUTTON" | translate }}</button>
+                    <p ng-if="loginNow">{{loginMsg}}</p><img height="20" src="images/spinner.gif" ng-if="showLoginSpinner">
+                  </form>
+                 
+                  
+               </div>
+               <a ng-click="changeForm(true, false, false)" style="cursor: pointer">{{ "LOGIN_NOT_HAVE_ACCOUNT" | translate }}</a>
+               <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+            </div><!-- Log in Form End -->
+
+            <!-- Forgot Form
+        ================================================= -->
+        <div class="sign-up-form" ng-if="showForgot">
+               <a href="#" class="logo"><img src="images/logo.png" alt="Go Dr Pet"/></a>
+               <h2 class="text-white">Go Dr Pet</h2>
+               <div class="line-divider"></div>
+               <div class="form-wrapper">
+                  <p class="signup-text">{{"LOGIN_TEXT" | translate}}</p>
+                  <form ng-submit="doForgot()">
+                     <fieldset class="form-group">
+                        <p ng-if="showUsernameError" style="color:red">{{usernameErrorMsg}}</p>
+                        <input type="email" class="form-control" id="username" placeholder="{{ 'LOGIN_USERNAME' | translate }}" ng-model="forgotData.username">
+                     </fieldset>
+                     <button class="btn-secondary" ng-if="!forgotNow" type="submit">{{ "FORGOT_BUTTON" | translate }}</button>
+                   </form>
+                 
+                  <p ng-if="forgotNow">{{forgotMsg}}</p><img height="20" src="images/spinner.gif" ng-if="showForgotSpinner">
+               </div>
+               <a ng-click="changeForm(false, true, false)" style="cursor: pointer">{{ "FORGOT_TO_LOGIN" | translate }}</a>
+               <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
+            </div><!-- Log in Form End -->
+
+
+        <svg class="arrows hidden-xs hidden-sm">
+          <path class="a1" d="M0 0 L30 32 L60 0"></path>
+          <path class="a2" d="M0 20 L30 52 L60 20"></path>
+          <path class="a3" d="M0 40 L30 72 L60 40"></path>
+        </svg>
+         </div>
+      </section>
+    <!-- Features Section
+    ================================================= -->
+      <section id="features">
+         <div class="container wrapper">
+            <h1 class="section-title slideDown">social herd</h1>
+            <div class="row slideUp">
+               <div class="feature-item col-md-2 col-sm-6 col-xs-6 col-md-offset-2">
+                  <div class="feature-icon"><i class="icon ion-person-add"></i></div>
+                  <h3>Make Friends</h3>
+               </div>
+               <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                  <div class="feature-icon"><i class="icon ion-images"></i></div>
+                  <h3>Publish Posts</h3>
+               </div>
+               <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                  <div class="feature-icon"><i class="icon ion-chatbox-working"></i></div>
+                  <h3>Private Chats</h3>
+               </div>
+               <div class="feature-item col-md-2 col-sm-6 col-xs-6">
+                  <div class="feature-icon"><i class="icon ion-compose"></i></div>
+                  <h3>Create Polls</h3>
+               </div>
+            </div>
+            <h2 class="sub-title">find awesome people like you</h2>
+            <div id="incremental-counter" data-value="101242"></div>
+            <p>People Already Signed Up</p>
+            <img src="images/face-map.png" alt="" class="img-responsive face-map slideUp hidden-sm hidden-xs" />
+         </div>
+
+      </section>
+
+    <!-- Download Section
+    ================================================= -->
+      <section id="app-download">
+         <div class="container wrapper">
+            <h1 class="section-title slideDown">download</h1>
+            <ul class="app-btn list-inline slideUp">
+               <li><button class="btn-secondary"><img src="images/app-store.png" alt="App Store" /></button></li>
+               <li><button class="btn-secondary"><img src="images/google-play.png" alt="Google Play" /></button></li>
+            </ul>
+            <h2 class="sub-title">stay connected anytime, anywhere</h2>
+            <img src="http://placehold.it/800x190" alt="iPhone" class="img-responsive" />
+         </div>
+      </section>
+
+    <!-- Image Divider
+    ================================================= -->
+    <div class="img-divider hidden-sm hidden-xs"></div>
+
+    <!-- Facts Section
+    ================================================= -->
+      <section id="site-facts">
+         <div class="container wrapper">
+            <div class="circle">
+               <ul class="facts-list">
+                  <li>
+                     <div class="fact-icon"><i class="icon ion-ios-people-outline"></i></div>
+                     <h3 class="text-white">1,01,242</h3>
+                     <p>People registered</p>
+                  </li>
+                  <li>
+                     <div class="fact-icon"><i class="icon ion-images"></i></div>
+                     <h3 class="text-white">21,01,242</h3>
+                     <p>Posts published</p>
+                  </li>
+                  <li>
+                     <div class="fact-icon"><i class="icon ion-checkmark-round"></i></div>
+                     <h3 class="text-white">41,242</h3>
+                     <p>People online</p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </section>
+
+    <!-- Live Feed Section
+    ================================================= -->
+      <section id="live-feed">
+         <div class="container wrapper">
+            <h1 class="section-title slideDown">live feed</h1>
+            <ul class="online-users list-inline slideUp">
+               <li><a href="#" title="Alexis Clark"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+          <li><a href="#" title="James Carter"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+          <li><a href="#" title="Robert Cook"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+          <li><a href="#" title="Richard Bell"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+          <li><a href="#" title="Anna Young"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+          <li><a href="#" title="Julia Cox"><img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
+            </ul>
+            <h2 class="sub-title">see what’s happening now</h2>
+            <div class="row">
+               <div class="col-md-4 col-sm-6 col-md-offset-2">
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Sarah</a> just posted a photo from Moscow</p>
+                        <p class="text-muted">20 Secs ago</p>
+                     </div>
+                  </div>
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">John</a> Published a post from Sydney</p>
+                        <p class="text-muted">1 min ago</p>
+                     </div>
+                  </div>
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Julia</a> Updated her status from London</p>
+                        <p class="text-muted">5 mins ago</p>
+                     </div>
+                  </div>
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Sophia</a> Share a photo from Virginia</p>
+                        <p class="text-muted">10 mins ago</p>
+                     </div>
+                  </div>
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Linda</a> just posted a photo from Toronto</p>
+                        <p class="text-muted">20 mins ago</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Nora</a> Shared an article from Ohio</p>
+                        <p class="text-muted">22 mins ago</p>
+                     </div>
+                  </div>
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Addison</a> Created a poll from Barcelona</p>
+                        <p class="text-muted">23 mins ago</p>
+                     </div>
+                  </div>
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Diana</a> Posted a video from Captown</p>
+                        <p class="text-muted">27 mins ago</p>
+                     </div>
+                  </div>
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Sarah</a> Shared friend's post from Moscow</p>
+                        <p class="text-muted">30 mins ago</p>
+                     </div>
+                  </div>
+                  <div class="feed-item">
+                     <img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo-sm" />
+                     <div class="live-activity">
+                        <p><a href="#" class="profile-link">Emma</a> Started a new job at Torronto</p>
+                        <p class="text-muted">33 mins ago</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>

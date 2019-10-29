@@ -1,0 +1,20 @@
+    <div class="ngdialog-message">
+        <div class="">
+            <h3>{{"VIDEOCALL_OVERVIEW_TITLE" | translate}} </h3>
+        </div>
+        <div class="">&nbsp;</div>
+        <div class="">
+            <form ng-submit="doOverview()">
+                <fieldset class="form-group">
+                        <p ng-if="showOverviewError" style="color:red">{{overviewErrorMsg}}</p>
+                        <textarea  class="form-control" id="overview"  ng-model="videocallData.overview">
+                        </textarea>
+                </fieldset>
+                <button class="btn-secondary" type="submit">{{ "SEND_OVERVIEW_BUTTON" | translate }}</button>    
+                
+            </form>
+        </div>
+        <div>
+
+        </div>
+    </div>

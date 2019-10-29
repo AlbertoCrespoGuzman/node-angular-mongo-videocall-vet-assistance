@@ -1,0 +1,55 @@
+
+        <div class="col-md-3 static">
+                <div class="profile-card">
+                	<img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
+                	<h5><a ui-sref="app.profile.details" class="text-white">{{username}}</a></h5>
+                	<a ng-if="userType == 3" href="#" class="text-white">{{user.payment.credits}} {{"CREDITS_SIDEBAR" | translate}} <i class="ion ion-disc"></i> </a>
+                  <a ng-if="userType == 2" href="#" class="text-white"><i class="ion ion-medkit"></i> {{"VET_MENU" | translate}}</a>
+                </div><!--profile card ends-->
+                <ul class="nav-news-feed">    
+
+                  <li class="sidebar-option" ng-class="profileActive == 'details' ? 'activated' : ''">
+                      <i class="icon ion-person green-icon"></i>
+                      <div>
+                          <a  ui-sref="app.profile.details" >{{"ACCOUNT_DETAILS_SIDEBAR" | translate}}</a>
+                      </div>
+                  </li>
+
+                  <li class="sidebar-option" ng-if="userType == 3" ng-class="profileActive == 'pets' ? 'activated' : ''">
+                      <i class="icon ion-ios-paw purple-icon"></i>
+                      <div>
+                          <a ui-sref="app.profile.pets">{{"PETS_SIDEBAR" | translate}}</a>
+                      </div>
+                  </li>
+
+                  <li class="sidebar-option" ng-class="profileActive == 'history' ? 'activated' : ''">
+                      <i class="icon ion-clipboard purple-icon orange-icon"></i>
+                      <div>
+                          <a ui-sref="app.profile.history" >{{"HISTORY_ATTENDANCE_SIDEBAR" | translate}}</a>
+                      </div>
+                  </li>
+
+                  <li class="sidebar-option" ng-if="userType == 3" ng-class="profileActive == 'payment' ? 'activated' : ''">
+                      <i class="icon ion-card pink-icon"></i>
+                      <div>
+                          <a ui-sref="app.profile.payment">{{"PAYMENT_DETAILS_SIDEBAR" | translate}}</a>
+                      </div>
+                  </li>
+                  <!--
+                  <li class="sidebar-option" ng-class="profileActive == 'messages' ? 'activated' : ''">
+                      <i class="icon ion-email blue-icon"></i>
+                      <div>
+                          <a ui-sref="app.profile.messages">{{"MESSAGES_SIDEBAR" | translate }}
+                          </a>
+                      </div>
+                  </li>
+
+                  <li class="sidebar-option" ng-if="userType == 3" ng-class="profileActive == 'delivery' ? 'activated' : ''">
+                      <i class="icon ion-images"></i>
+                      <div>
+                          <a ui-sref="app.profile.delivery">{{"DELIVERY_SIDEBAR" | translate }}</a>
+                      </div>
+                  </li>  -->
+                </ul><!--news-feed links ends-->
+ 
+        </div>

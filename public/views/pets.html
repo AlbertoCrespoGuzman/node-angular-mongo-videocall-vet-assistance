@@ -1,0 +1,32 @@
+<div class="row">
+
+	<div class="col-md-7">
+		<div class="edit-profile-container" style="margin-bottom: 10px">
+			<div class="block-title">
+	                  <h4 class="grey ng-binding"><i class="icon ion-ios-paw purple-icon"></i>
+	                   {{"PETS_SIDEBAR" | translate}}</h4>
+	                  <div class="line"></div>
+	                  <center>
+						<button class="btn btn-primary" ng-click="openDialogPet(0)">{{"ADD_PET" | translate}}</button>		
+					</center>
+	        </div>
+		</div>
+		<div class="post-content" ng-repeat="pet in pets">
+
+
+                <div class="post-container">
+                  <img src="http://placehold.it/300x300" alt="user" class="profile-photo-md pull-left">
+                  <div class="post-detail">
+                    <div class="user-info">
+                      <h5><a href="timeline.html" class="profile-link">{{pet.name}}</a> <span class="following">{{pet.specie['name_' + user.lang]}} - {{pet.race['name_' + user.lang]}}</span></h5>
+                      <p class="text-muted">{{pet.birthday}} | {{pet.weight}} Kg</p>
+                    </div>
+                    <div class="reaction">
+                      <a class="btn text-orange" ng-click="openDialogPet(pet._id)"><i class="icon ion-edit"></i> {{"PET_EDIT" | translate}}</a>
+                      <a class="btn text-red"><i class="fa fa-trash"></i> {{"PET_REMOVE" | translate}}</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+</div>

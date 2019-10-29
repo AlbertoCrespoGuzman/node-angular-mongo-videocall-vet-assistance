@@ -1,0 +1,127 @@
+<section >
+         <div class="container" style="margin-top:-24px">
+         	<div class="col-md-4 client-side-bar-custom" ng-if="!state.videoCall.started">
+         		<button ng-click="joinToWaitingRoom()" class="btn btn-primary" style="margin-top: 50px" ng-if="state.dashboard">{{"COME_IN_WAITINGROOM_BUTTON" | translate}}</button>
+         		<button ng-click="outOfWaitingRoom()" class="btn-secondary" style="margin-top: 50px" ng-if="state.waitingRoom.in">{{"EXIT_WAITINGROOM_BUTTON" | translate}}</button>
+ 			</div>
+ 			<div class="col-md-8" ng-if="state.waitingRoom.connecting">
+ 				<div style="text-align: center; margin-top: 50px">
+ 				<p>{{"CONNECTING_TEXT" | translate }}</p><img height="20" src="images/spinner.gif" >
+ 				</div>
+ 			</div>
+ 			<div class="col-md-8 " ng-if="state.waitingRoom.in  && !state.videoCall.showRinging " >
+ 					<center>
+ 						<h2 style="margin-bottom: 10px">{{"WAITING_ROOM_TITLE" | translate}}</h2>
+ 					</center>
+ 					<!-- <div class="create-post">
+			            	<div class="row">
+			            		<div class="col-md-7 col-sm-7 col-sm-offset-2 col-md-offset-2">
+				                  <div class="form-group">
+				                    <img src="http://placehold.it/300x300" alt="" class="profile-photo-md" />
+				                    <h4 >{{"WAITING_ROOM_TITLE" | translate}}</h4>
+				                  </div>
+		                		</div> 
+			            		
+			            	</div>
+			            </div>   --> <!-- Post Create Box End -->
+ 					<div class="chat-room">
+			              <div  class="row">
+			                <div class="col-md-5" style="border-right: 1px solid #f1f2f2">
+			                	<center><h5>{{waitingRoom.clients.length}} {{"WAITING_ROOM_CLIENTS_ONLINE_TEXT" | translate}}</h5></center>
+			                  <!-- Contact List in Left-->
+			                  <ul class="nav nav-tabs contact-list scrollbar-wrapper scrollbar-outer">
+			                    <li class="active" ng-repeat="client in waitingRoom.clients">
+			                      <a >
+			                        <div class="contact">
+			                        	<img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
+			                        	<span ng-class="client.status == 1 ? 'online-dot-small' : 'bussy-dot-small'"></span>
+			                        	<div class="msg-preview">
+			                        		<h6>{{client.details ? client.details.firstname + ' ' + client.details.lastname : client.username}}</h6>
+			                        		<p class="text-muted">alguna Info extra</p>
+			                            <small class="text-muted" ng-if="client.status == 1">{{"USER_STATUS_ONLINE" | translate}}</small>
+			                            <small class="text-muted" ng-if="client.status == 2">{{"USER_STATUS_INCALL" | translate}</small>
+			                            <div class="chat-alert">1</div>
+			                        	</div>
+			                        </div>
+			                      </a>
+			                    </li>
+			                    
+			                  </ul><!--Contact List in Left End-->
+
+			                </div>
+			                <div class="col-md-7">
+
+			                  <!--Chat Messages in Right-->
+			                  <div class="tab-content scrollbar-wrapper wrapper scrollbar-outer"  style="padding-top: 0px">
+			                    <div class="tab-pane active" id="contact-1">
+			                      <div class="chat-body">
+			                      	<ul class="chat-message">
+			                      		<li class="left" ng-repeat="text in infoText">
+			                      			<img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left" />
+			                      			<div class="chat-item">
+			                              <div class="chat-item-header">
+			                              	<h5>{{text.name}}</h5>
+			                              	<small class="text-muted">{{text.date}}</small>
+			                              </div>
+			                              <p>{{text.message}}</p>
+			                            </div>
+			                      		</li>
+			                        </ul>
+			                      </div>
+			                    </div>
+			                  </div><!--Chat Messages in Right End-->
+
+			                  
+			                </div>
+			                <div class="clearfix"></div>
+			                <div ng-if="waitingRoom.clients.length > 0 && !state.pendingVideocall">
+				                <center>
+				                	<h5>{{"CALL_NEXT_CLIENT_BUTTON" | translate}}</h5>
+				                  	<div class="circle-icon-white-bordered animated bounce" ng-click="startCallNextClient()" ><i class="ion-android-call next-call-icon"></i></div>
+				                </center>
+		            		</div>
+			                
+			                
+			              </div>
+			            </div>
+			        </div>
+			        <div class="col-md-8" ng-if="state.pendingVideocall">
+			        	<center>
+			                	<h2  ng-if="state.pendingVideocall">{{"RESUME_CALL_BUTTON" | translate}}</h2>
+			                  	<div class="circle-icon-big-green animated bounce" ng-click="resumeCall()" ng-if="state.pendingVideocall"><i class="ion-android-call controls-big"></i></div>
+			                </center>
+			        </div>
+			       <div class="col-md-8 col-md-offset-2" ng-if="state.videoCall.peerAbandoned" style="text-align: center; margin-top: 50px">
+		 				<p>{{"CLIENT_ABANDONED" | translate }}</p>
+		 				<button ng-click="openOverviewDialog()">{{"ACCEPT_BUTTON" | translate}}</button>
+			 		</div>
+			        <div class="col-md-8 col-md-offset-2" ng-if="state.videoCall.peerConnectionProblem" style="text-align: center; margin-top: 50px">
+		 				<p>{{"VET_CONNECTION_PROBLEM_TEXT" | translate }}</p><img height="20" src="images/spinner.gif" >
+		 			</div>	
+			        <div class="col-md-8  col-md-offset-2" ng-if="videoCall.status == 1" style="text-align: center; margin-top: 10px">
+		 				<p>{{"WAITING_CLIENT_TEXT" | translate }}</p><img height="20" src="images/spinner.gif" >
+		 			</div>		
+			        <div class="col-md-8 col-md-offset-2" id="supercontainer" style="margin-top: 20px" ng-if="state.videoCall.started" id="videocall-container" >
+							  <broadcasterclient 
+							    has-stream="hasStream"
+							    room-name="roomName"
+							    video-list="videoList"
+							    is-broadcasting="isBroadcasting"></broadcasterclient>
+							<div id="videocall-controls" class="videocall-controls" >
+								<center>
+									<div ng-click="toggleFullscreen()" class="circle-icon-blue" ng-disabled="videoCall.status == 1">
+											<i  ng-class="state.videoCall.fullscreen ? 'ion-android-contract controls' :'icon ion-android-expand controls'"></i>
+									</div>
+									<div ng-click="toggleMute()" class="circle-icon-blue" >
+										<i ng-class="state.videoCall.mute ? 'ion-android-microphone controls' :'ion-android-microphone-off controls'"></i>
+									</div>
+									<div ng-click="leaveRoom()" class="circle-icon-red" >
+										<i class="ion-android-call controls"></i>
+									</div>
+								</center>
+							</div>
+			        </div>
+			        
+ 			</div>
+ 		</div>
+</section>

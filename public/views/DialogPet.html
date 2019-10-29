@@ -1,0 +1,55 @@
+<div class="ngdialog-message">
+        <div class="edit-profile-container">
+            <div class="block-title">
+                      <h4 class="grey ng-binding"><i class="icon ion-ios-paw purple-icon"></i>
+                       {{"PETS_SIDEBAR" | translate}}</h4>
+                      <div class="line"></div>
+            </div>
+                <form class="form-inline" ng-submit="updatePet($event)">
+                    <div class="row">
+                        <div class="form-group col-sm-12 col-xs-12">    
+                            <label for="name">{{"PETS_NAME" | translate}}</label> <span ng-show="error.name" style="color:red; font-size: 10px;">{{"ERROR_PET_NAME" | translate}}</span>
+                            <input ng-model="pet.name" class="form-control input-group-lg" type="text" placeholder='{{"PETS_NAME" | translate}}' >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-12 col-xs-12">    
+                            <label for="specie">{{"PETS_SPECIE" | translate}}</label> <span ng-show="error.specie" style="color:red; font-size: 10px;">{{"ERROR_PET_SPECIE" | translate}}</span>
+                            <select ng-change="onSpecieSelected()" ng-model="pet.specie" class="form-control" ng-options="specie.name for specie in species  track by specie._id">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="races.length > 0 || pet.specie != 0">
+                        <div class="form-group col-sm-12 col-xs-12">    
+                            <label for="race">{{"PETS_RACE" | translate}}</label> <span ng-show="error.race" style="color:red; font-size: 10px;">{{"ERROR_PET_RACE" | translate}}</span>
+                            <select ng-model="pet.race" class="form-control" ng-options="race.name for race in races track by race._id">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-sm-6 col-xs-12">
+                        <label for="year" >{{"PET_BIRTHDAY_YEAR_FORM" | translate}}</label> <span ng-show="error.birthday" style="color:red; font-size: 10px;">{{"ERROR_PET_BIRTHDAY" | translate}}</span>
+                        <select class="form-control" id="year" ng-model="pet.birthday" ng-options="year for year in years">
+                        </select>
+                      </div>
+                      <div class="form-group col-sm-6 col-xs-12">
+                        <label for="weight" >{{"PETS_WEIGHT" | translate}}</label> <span ng-show="error.weight" style="color:red; font-size: 10px;">{{"ERROR_PET_WEIGHT" | translate}}</span>
+                        <input class="form-control input-group-lg"  ng-model="pet.weight" type="number">
+                      </div> 
+                    </div>
+                    <div class="row" style="margin-top: 10px; margin-left: 5px">
+                        <button class="btn btn-primary" type="submit">{{"SAVE_BUTTON_FORM" | translate}}</button>
+                    </div>
+                </form>
+           
+            <!-- 
+                name
+                specie
+                birthday
+                race
+                weight
+                country ??
+                user
+            -->
+        </div>
+</div>

@@ -1,0 +1,65 @@
+	<div class="col-md-9">
+
+
+            <div class="chat-room" style="min-height: 500px">
+              <div  class="row" style="min-height: 500px">
+                <div class="col-md-6" style="min-height: 500px">
+
+                  <!-- Contact List in Left-->
+                  <ul class="nav nav-tabs contact-list scrollbar-wrapper scrollbar-outer" style="min-height: 500px">
+                    <li ng-class="currentVideocall._id == videocall._id ? 'active' : ''" ng-repeat="videocall in videocalls">
+                      <a  ng-click="showVideocallInfo(videocall._id)" data-toggle="tab">
+                        <div class="contact">
+                        	<img src="http://placehold.it/300x300" alt="" class="profile-photo-sm pull-left"/>
+                        	<div class="msg-preview">
+                        		<h6> {{videocall.vet.details.firstname + ' ' + videocall.vet.details.lastname}}</h6>
+                        		<p class="text-muted">{{videocall.vet.details.firstname + ' ' + videocall.vet.details.lastname}}</p>
+                            <small class="text-muted">{{videocall.startedAt | date}}</small>
+                            <div class="chat-alert" ng-if="videocall.status == 4">!</div>
+                            <div class="seen" ng-if="videocall.status == 3"><i class="icon ion-checkmark-round"></i></div>
+                        	</div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+
+                </div>
+                <div class="col-md-6">
+
+                  <!--Chat Messages in Right-->
+                  <div class="tab-content scrollbar-wrapper wrapper scrollbar-outer">
+                    <div class="tab-pane active" ng-if="currentVideocall._id">
+                      <div class="about-content-block">
+			                  <h4 class="grey"><i class="ion-ios-information-outline icon-in-title"></i>{{"VIDEOCALL_INFORMATION_TITLE" | translate}}</h4>
+			                  <div class="col-md-6">
+			                  	<p>{{"VET_TITLE" | translate}} {{currentVideocall.vet.details.firstname + ' ' + currentVideocall.vet.details.lastname}}</p>
+			                  </div>
+			                  <div class="col-md-6">
+			                  	<p>{{"CLIENT_TITLE" | translate}} {{currentVideocall.client.details.firstname + ' ' + currentVideocall.client.details.lastname}}</p>
+			                  </div>
+			                  <div class="col-md-6">
+			                  	<p>{{"STARTED_AT_VIDEOCALL" | translate}} {{currentVideocall.startedAt | date}}</p>
+			                  </div>
+			                  <div class="col-md-6">
+			                  	<p>{{"DURATION_AT_VIDEOCALL" | translate}} {{currentVideocall.duration}}</p>
+			                  </div>
+			                  <div class="col-md-6">
+			                  	<p>{{"CREDITS_COST" | translate}} {{currentVideocall.credits}} <i class="ion ion-disc blue-icon"></i></p>
+			                  </div>
+			                  
+			                  <div class="col-md-6" >
+			                  	<p ng-if="currentVideocall.rating"> {{"CLIENT_RATING" | translate}} {{currentVideocall.rating}} <i class="ion ion-star orange-icon"></i></p>
+			                  </div>
+			                  <h5>{{"VET_OVERVIEW_TITLE" | translate}}</h5>
+			                  <p>{{currentVideocall.overview}}</p>
+			                </div>
+                    </div>
+                    
+                  </div><!--Chat Messages in Right End-->
+
+                  
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div

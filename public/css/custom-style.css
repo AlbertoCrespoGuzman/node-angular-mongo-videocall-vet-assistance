@@ -1,0 +1,343 @@
+.purple-icon{
+  color:# #662d91;
+}
+.green-icon{
+  color: #8dc63f;
+}
+.orange-icon{
+  color: #f7941e;
+}
+.pink-icon{
+  color: #ee2a7b;
+}
+.blue-icon{
+  color: #1c75bc;
+}
+.online-dot-small {
+    background: linear-gradient(to bottom, rgba(141,198,63, 1), rgba(0,148,68, 1));
+    border: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 15px;
+    border: 2px solid #fff;
+    left: 24px;
+    margin: auto;
+}
+.bussy-dot-small {
+    background: linear-gradient(to bottom, rgba(240,173,7, 1), rgba(240,173,7, 1));
+    border: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 15px;
+    border: 2px solid #fff;
+    left: 24px;
+    margin: auto;
+}
+
+.sidebar-option{
+  padding-left: 15px;
+}
+.sidebar-option:hover{
+  background: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8)), url("http://placehold.it/1030x430") no-repeat;
+  
+}
+.sidebar-option:hover a{
+  color: white;
+}
+.activated{
+  background: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8)), url("http://placehold.it/1030x430") no-repeat;
+  color: white;
+}
+.activated a{
+  color: white !important;
+}
+.activated div::after{
+      border-top: 1px solid #4486c0 !important;
+}
+
+.centered{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+ul.nav-news-feed li:hover div::after{
+      border-top: 1px solid #4486c0;
+}
+.animated {
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-5px);
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+.circle-icon-big-green {
+    background: #2ed64b;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 90px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+    margin: 15px;
+}
+.circle-icon-white-bordered {
+    background: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 70px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+    border: solid 1px #333333;
+}
+.next-call-icon{
+  font-size: 35px;
+  color: #329cd7;
+}
+.circle-icon-blue {
+    background: #2aabe2;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+
+  margin-left: 7px;
+}
+.circle-icon-red {
+    background: red;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    vertical-align: middle;
+    display: inline-block;
+    cursor: pointer;
+
+  margin-left: 7px;
+}
+.controls{
+  font-size: 22px;
+  color: white;
+}
+
+.controls-big{
+  font-size: 45px;
+  color: white;
+}
+.fullscreen {
+    background: transparent;
+    min-height: 100%; 
+}
+
+.volume_bar {
+                position: absolute;
+                width: 5px;
+                height: 0px;
+                right: 0px;
+                bottom: 10px;
+                background-color: #12acef;
+            }
+.empty-star{
+  background-image: url("../images/empty_star.png");
+  height: 48px;
+  width: 48px;
+  display: inline-block;
+}
+.fill-star{
+  background-image: url("../images/fill_star.png");
+  height: 48px;
+  width: 48px;
+}
+
+ .remoteVideoContainer {
+        background: transparent;
+        max-width: 100%;
+        max-height: 100%;
+       }
+.remoteVideoContainer:after {
+  content: "";
+  display: block;
+}
+ .remoteVideo{
+    position: relative;
+     width: 100%;
+     left: 0%;
+     top: 0%;
+     background: transparent;
+ }
+  .remoteVideo-portrait{
+    position: relative;
+     left: 0%;
+     top: 0%;
+     background: transparent;
+ }
+  .localVideoContainer{
+     position: absolute;
+     width: 20%;
+     left: 10px;
+     bottom: 5px;
+     background: transparent;
+     z-index: 500;
+  }
+ /*
+ .localVideoContainer{
+     position: relative;
+     width: 20%;
+     height: 20%;
+     left: 78%;
+     top: 99%;
+     background: transparent;
+     z-index: 500;
+  } */
+  .videocall-controls{
+     position: absolute;
+     width: 100%;
+     left: 0%;
+     bottom: 15px;
+     background: transparent;
+     z-index: 1000;
+  }
+.localVideoContainer-fullscreen-widther{
+     position: relative;
+     width: 20%;
+     height: 20%;
+     left: 130%;
+     top: 120%;
+     background: transparent;
+     z-index: 500;
+  }
+  .videocall-controls-fullscreen-widther{
+     position: relative;
+     width: 50%;
+     height: 20%;
+     left: 50%;
+     top: 150%;
+     background: transparent;
+     z-index: 1000;
+  }
+  
+.waiting-room-container{
+  text-align: center;
+  border: solid 1px red;
+}
+.waiting-room-wrapper{
+  margin:20px;
+  margin-top: 50px;
+  min-height: 560px;
+  background: white;
+}
+.waiting-room-container h2{
+  margin:20px;
+  color: black;
+}
+
+.client-side-bar-custom{
+  background: linear-gradient(to bottom, rgba(43,57,144,.8), rgba(39,170,225,1) 65%);
+  min-height: 550px;
+  top: 0;
+  padding: 40px 30px;
+  text-align: center;
+  color: #fff;
+}
+.client-side-bar-custom:after{
+  content: "";
+  border-color: #27aae1 transparent transparent;
+  border-style: solid;
+  border-width: 40px 170px 0;
+  bottom: -40px;
+  height: 0;
+  left: 0;
+  position: absolute;
+  width: 0;
+}
+
+.client-side-bar-custom h2{
+  font-family:'Agency FB', sans-serif;
+  margin: 100px 0 20px;
+}
+
+.client-side-bar-custom .line-divider{
+  background: none;
+  height: 1px;
+  border-top: 1px solid rgba(255, 255, 255, .20);
+  width: 180px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.client-side-bar-custom .form-wrapper{
+  padding: 20px 20px 0;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-top: none;
+  margin-bottom: 30px;
+}
+
+.client-side-bar-custom .form-wrapper .signup-text{
+  font-size: 15px;
+}
+
+.client-side-bar-custom .form-wrapper .form-group{
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.client-side-bar-custom .form-wrapper .form-group .form-control{
+  border: none;
+  box-shadow: none;
+  border-radius: 17px;
+  padding-left: 20px;
+}
+
+.client-side-bar-custom .form-wrapper button{
+  position: relative;
+  top: 20px;
+  border-radius: 17px;
+}
+
+.client-side-bar-custom a{
+  color: #fff;
+}
+
+.client-side-bar-custom img.form-shadow{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 100%;
+}
